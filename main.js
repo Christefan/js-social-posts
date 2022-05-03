@@ -11,7 +11,29 @@ const posts = [
         created: "2021-06-25"
     },
     {
-        id: 2,
+        id: 44,
+        content: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+        media: "https://unsplash.it/600/300?image=171",
+        author: {
+            name: "Phil Mangione",
+            image: "https://unsplash.it/300/300?image=15"
+        },
+        likes: 80,
+        created: "2021-06-25"
+    },
+    {
+        id: 3,
+        content: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+        media: "https://unsplash.it/600/300?image=171",
+        author: {
+            name: "Phil Mangione",
+            image: "https://unsplash.it/300/300?image=15"
+        },
+        likes: 80,
+        created: "2021-06-25"
+    },
+    {
+        id: 87,
         content: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
         media: "https://unsplash.it/600/300?image=171",
         author: {
@@ -71,15 +93,23 @@ function createPost(elementP){
 }
 
 let like = document.querySelectorAll(".like-button");
+const likeCount = document.querySelectorAll(".js-likes-counter");
+console.log(like);
 for(let i = 0; i < like.length; i++){
     like[i].addEventListener("click", function(){
+
         const check = this.classList.contains("like-button--liked")
         console.log(check)
         if(!check){
             this.classList.add("like-button--liked");
+        
+            console.log("id :"+ posts[i].id)
+            likeCount[i].innerHTML = posts[i].likes + 1;
+
         }else{
             this.classList.remove("like-button--liked");
+            console.log("id :"+ posts[i].id)
+            likeCount[i].innerHTML = posts[i].likes;
         }
     });
-    
 }
